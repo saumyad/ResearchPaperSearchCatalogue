@@ -1,0 +1,69 @@
+# Install Django
+python3 -m venv myvenv
+(Create a virtual environment if you have multiple django projects).
+
+#General Information
+manage.py is a script that helps with management of the site. With it we will be able to start a web server on our computer without installing anything else, amongst other things.
+
+The settings.py file contains the configuration of the website. For now I have included haystack and bootstrap config.
+
+urls.py file contains a list of patterns used by urlresolver
+
+wsgi exposes application interface to the server
+
+## init is empty so not important- may contain
+
+## ElasticSearch install
+pip install elasticsearch (version 1.9.0)
+
+## BootStrap install
+pip install django-twitter-bootstrap (version 3.3.0)
+
+## Start up elasticSearch server
+sudo /etc/init.d/elasticsearch start
+
+## TIKA install
+sudo pip install cython (0.23.4)
+sudo pip install -e git+git://github.com/kivy/pyjnius.git@1.0.3#egg=jnius
+Download Tika from apache mirrors : http://www.apache.org/dyn/closer.cgi/tika/tika-app-1.11.jar
+
+## Textract install
+pip install textract (python wrapper- preferable) (version 1.4.0)
+
+##Bootstrap for admin panel
+sudo apt-get install mercurial
+
+sudo pip install -e hg+https://bitbucket.org/salvator/django-admintools-bootstrap#egg=admintools_bootstrap
+
+sudo pip install django-admin-tools
+
+python manage.py  migrate
+(Currently -  just try to work with the template files already committed, if it does not work..then go this way)
+
+## Nice references
+http://blog.tryolabs.com/2015/02/17/python-elasticsearch-first-steps/
+https://cloud.google.com/appengine/docs/python/cloud-sql/django
+https://media.readthedocs.org/pdf/textract/latest/textract.pdf
+http://www.searchly.com/documentation/developer-api-guide/python-django-haystack/
+http://django-haystack.readthedocs.org/en/latest/tutorial.html
+
+## Install Mysql
+Prefering it over sqllite3- since ours might need heavy end queries in the future.
+Create database 'LibraryCatalogue' in your local DB. Auth details go in settings.py
+
+sudo apt-get install libmysqlclient-dev
+sudo pip install mysqlclient
+
+
+## Migrate Models
+## Follow exact commands as shown here and in the exact order, lest you want to spend 100 hours in debugging :D
+
+python manage.py makemigrations searchApp (you may not need this)
+python manage.py migrate auth
+python manage.py migrate admin
+python manage.py migrate searchApp
+python manage.py migrate
+
+## Run Server
+python manage.py runserver
+
