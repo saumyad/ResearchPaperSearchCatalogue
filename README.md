@@ -38,3 +38,9 @@ but also will facilitate faster and more effective understanding of the material
 leads to an effective and efficient search and the time wasted on finding relevant papers on a
 
 vanilla search engine, not designed for document search, can then be put to better use.
+
+---------
+
+Copyright (c) 2016 The persons identified as document authors. All rights reserved.
+
+Code Components extracted from this document must include MIT License text.
